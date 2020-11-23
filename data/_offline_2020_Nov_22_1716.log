@@ -1,0 +1,13 @@
+1.6347 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.0861 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+10.3332 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001B9BF53EA30>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001B9BF61B970>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.3333 	EXP 	window1: mouseVisible = True
+10.3333 	EXP 	window1: recordFrameIntervals = False
+10.4954 	EXP 	window1: recordFrameIntervals = True
+10.5144 	WARNING 	t of last frame was 10.37ms (=1/96)
+10.6047 	WARNING 	t of last frame was 90.28ms (=1/11)
+10.6411 	WARNING 	t of last frame was 11.78ms (=1/84)
+10.7419 	WARNING 	t of last frame was 21.20ms (=1/47)
+10.7615 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+10.9168 	EXP 	window1: recordFrameIntervals = False
+12.7446 	EXP 	window1: mouseVisible = True

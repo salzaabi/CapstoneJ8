@@ -1,0 +1,323 @@
+0.6898 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+2.3636 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+5.1672 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000018F975FCA30>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000018F9769B970>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.1673 	EXP 	window1: mouseVisible = True
+5.1674 	EXP 	window1: recordFrameIntervals = False
+5.2810 	EXP 	window1: recordFrameIntervals = True
+5.3675 	EXP 	window1: recordFrameIntervals = False
+8.7517 	EXP 	Created instructions = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructions', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Welcome, this is the instructions!', units='height', win=Window(...), wrapWidth=1)
+8.7538 	EXP 	Created blank_img = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=None, interpolate=True, mask=None, maskParams=None, name='blank_img', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128, units='height', win=Window(...))
+8.7603 	EXP 	Created pause = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='pause', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='PAUSE', units='height', win=Window(...), wrapWidth=1)
+8.7616 	EXP 	Created indicate1 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indicate1', opacity=1.0, ori=array(0.), pos=array([  0., 400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.7625 	EXP 	Created indcate2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-2.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indcate2', opacity=1.0, ori=array(0.), pos=array([-400.,    0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.7636 	EXP 	Created indcate3 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-3.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indcate3', opacity=1.0, ori=array(0.), pos=array([400.,   0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.7649 	EXP 	Created indicate4 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-4.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indicate4', opacity=1.0, ori=array(0.), pos=array([   0., -400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+9.0491 	EXP 	Created square1 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square1', opacity=1.0, ori=array(0.), pos=array([  0., 400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+9.0501 	EXP 	Created square2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-2.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square2', opacity=1.0, ori=array(0.), pos=array([-400.,    0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+9.0510 	EXP 	Created square3 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-3.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square3', opacity=1.0, ori=array(0.), pos=array([400.,   0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+9.0519 	EXP 	Created square4 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-4.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square4', opacity=1.0, ori=array(0.), pos=array([   0., -400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+9.0530 	EXP 	Created blank_img = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=None, interpolate=True, mask=None, maskParams=None, name='blank_img', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128, units='height', win=Window(...))
+9.0828 	EXP 	instructions: autoDraw = True
+10.2719 	DATA 	Mouse: Left button down, pos=(1695,451)
+10.3887 	DATA 	Mouse:  Left button up, pos=(1696,451)
+11.4286 	DATA 	Keypress: space
+11.4292 	EXP 	Created sequence: sequential, trialTypes=1, nReps=3, seed=None
+11.4293 	EXP 	New trial (rep=0, index=0): None
+11.4364 	EXP 	instructions: autoDraw = False
+11.4364 	EXP 	blank_img: autoDraw = True
+12.4499 	EXP 	Imported conditions.xlsx as conditions, 4 conditions, 4 params
+12.4511 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+12.4513 	EXP 	New trial (rep=0, index=0): OrderedDict([('color1', [1, 0, 0]), ('color2', [1, 1, 1]), ('color3', [1, 1, 1]), ('color4', [1, 1, 1])])
+12.4632 	EXP 	blank_img: autoDraw = False
+12.4632 	EXP 	indicate1: fillColor = '[1. 0. 0.] (rgb)'
+12.4632 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+12.4632 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+12.4632 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+12.4632 	EXP 	pause: autoDraw = True
+12.4632 	EXP 	indicate1: autoDraw = True
+12.4632 	EXP 	indcate2: autoDraw = True
+12.4632 	EXP 	indcate3: autoDraw = True
+12.4632 	EXP 	indicate4: autoDraw = True
+13.4428 	EXP 	pause: autoDraw = False
+13.4428 	EXP 	indicate1: autoDraw = False
+13.4428 	EXP 	indcate2: autoDraw = False
+13.4428 	EXP 	indcate3: autoDraw = False
+13.4428 	EXP 	indicate4: autoDraw = False
+13.4428 	EXP 	square1: autoDraw = True
+13.4428 	EXP 	square2: autoDraw = True
+13.4428 	EXP 	square3: autoDraw = True
+13.4428 	EXP 	square4: autoDraw = True
+16.4343 	EXP 	New trial (rep=0, index=1): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 0, 0]), ('color4', [1, 1, 1])])
+16.4419 	EXP 	square1: autoDraw = False
+16.4419 	EXP 	square2: autoDraw = False
+16.4419 	EXP 	square3: autoDraw = False
+16.4419 	EXP 	square4: autoDraw = False
+16.4419 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+16.4419 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+16.4419 	EXP 	indcate3: fillColor = '[1. 0. 0.] (rgb)'
+16.4419 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+16.4419 	EXP 	pause: autoDraw = True
+16.4419 	EXP 	indicate1: autoDraw = True
+16.4419 	EXP 	indcate2: autoDraw = True
+16.4419 	EXP 	indcate3: autoDraw = True
+16.4419 	EXP 	indicate4: autoDraw = True
+17.4440 	EXP 	pause: autoDraw = False
+17.4440 	EXP 	indicate1: autoDraw = False
+17.4440 	EXP 	indcate2: autoDraw = False
+17.4440 	EXP 	indcate3: autoDraw = False
+17.4440 	EXP 	indicate4: autoDraw = False
+17.4440 	EXP 	square1: autoDraw = True
+17.4440 	EXP 	square2: autoDraw = True
+17.4440 	EXP 	square3: autoDraw = True
+17.4440 	EXP 	square4: autoDraw = True
+20.4355 	EXP 	New trial (rep=0, index=2): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 0, 0]), ('color3', [1, 1, 1]), ('color4', [1, 1, 1])])
+20.4432 	EXP 	square1: autoDraw = False
+20.4432 	EXP 	square2: autoDraw = False
+20.4432 	EXP 	square3: autoDraw = False
+20.4432 	EXP 	square4: autoDraw = False
+20.4432 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+20.4432 	EXP 	indcate2: fillColor = '[1. 0. 0.] (rgb)'
+20.4432 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+20.4432 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+20.4432 	EXP 	pause: autoDraw = True
+20.4432 	EXP 	indicate1: autoDraw = True
+20.4432 	EXP 	indcate2: autoDraw = True
+20.4432 	EXP 	indcate3: autoDraw = True
+20.4432 	EXP 	indicate4: autoDraw = True
+21.4453 	EXP 	pause: autoDraw = False
+21.4453 	EXP 	indicate1: autoDraw = False
+21.4453 	EXP 	indcate2: autoDraw = False
+21.4453 	EXP 	indcate3: autoDraw = False
+21.4453 	EXP 	indicate4: autoDraw = False
+21.4453 	EXP 	square1: autoDraw = True
+21.4453 	EXP 	square2: autoDraw = True
+21.4453 	EXP 	square3: autoDraw = True
+21.4453 	EXP 	square4: autoDraw = True
+24.4360 	EXP 	New trial (rep=0, index=3): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 1, 1]), ('color4', [1, 0, 0])])
+24.4438 	EXP 	square1: autoDraw = False
+24.4438 	EXP 	square2: autoDraw = False
+24.4438 	EXP 	square3: autoDraw = False
+24.4438 	EXP 	square4: autoDraw = False
+24.4438 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+24.4438 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+24.4438 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+24.4438 	EXP 	indicate4: fillColor = '[1. 0. 0.] (rgb)'
+24.4438 	EXP 	pause: autoDraw = True
+24.4438 	EXP 	indicate1: autoDraw = True
+24.4438 	EXP 	indcate2: autoDraw = True
+24.4438 	EXP 	indcate3: autoDraw = True
+24.4438 	EXP 	indicate4: autoDraw = True
+25.4378 	EXP 	pause: autoDraw = False
+25.4378 	EXP 	indicate1: autoDraw = False
+25.4378 	EXP 	indcate2: autoDraw = False
+25.4378 	EXP 	indcate3: autoDraw = False
+25.4378 	EXP 	indicate4: autoDraw = False
+25.4378 	EXP 	square1: autoDraw = True
+25.4378 	EXP 	square2: autoDraw = True
+25.4378 	EXP 	square3: autoDraw = True
+25.4378 	EXP 	square4: autoDraw = True
+28.4405 	EXP 	square1: autoDraw = False
+28.4405 	EXP 	square2: autoDraw = False
+28.4405 	EXP 	square3: autoDraw = False
+28.4405 	EXP 	square4: autoDraw = False
+28.4405 	EXP 	blank_img: autoDraw = True
+29.4350 	EXP 	New trial (rep=1, index=0): None
+29.4429 	EXP 	blank_img: autoDraw = False
+29.4429 	EXP 	blank_img: autoDraw = True
+30.4427 	EXP 	Imported conditions.xlsx as conditions, 4 conditions, 4 params
+30.4429 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+30.4431 	EXP 	New trial (rep=0, index=0): OrderedDict([('color1', [1, 0, 0]), ('color2', [1, 1, 1]), ('color3', [1, 1, 1]), ('color4', [1, 1, 1])])
+30.4452 	EXP 	blank_img: autoDraw = False
+30.4452 	EXP 	indicate1: fillColor = '[1. 0. 0.] (rgb)'
+30.4452 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+30.4452 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+30.4452 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+30.4452 	EXP 	pause: autoDraw = True
+30.4452 	EXP 	indicate1: autoDraw = True
+30.4452 	EXP 	indcate2: autoDraw = True
+30.4452 	EXP 	indcate3: autoDraw = True
+30.4452 	EXP 	indicate4: autoDraw = True
+31.4391 	EXP 	pause: autoDraw = False
+31.4391 	EXP 	indicate1: autoDraw = False
+31.4391 	EXP 	indcate2: autoDraw = False
+31.4391 	EXP 	indcate3: autoDraw = False
+31.4391 	EXP 	indicate4: autoDraw = False
+31.4391 	EXP 	square1: autoDraw = True
+31.4391 	EXP 	square2: autoDraw = True
+31.4391 	EXP 	square3: autoDraw = True
+31.4391 	EXP 	square4: autoDraw = True
+34.4357 	EXP 	New trial (rep=0, index=1): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 0, 0]), ('color4', [1, 1, 1])])
+34.4433 	EXP 	square1: autoDraw = False
+34.4433 	EXP 	square2: autoDraw = False
+34.4433 	EXP 	square3: autoDraw = False
+34.4433 	EXP 	square4: autoDraw = False
+34.4433 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+34.4433 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+34.4433 	EXP 	indcate3: fillColor = '[1. 0. 0.] (rgb)'
+34.4433 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+34.4433 	EXP 	pause: autoDraw = True
+34.4433 	EXP 	indicate1: autoDraw = True
+34.4433 	EXP 	indcate2: autoDraw = True
+34.4433 	EXP 	indcate3: autoDraw = True
+34.4433 	EXP 	indicate4: autoDraw = True
+35.4455 	EXP 	pause: autoDraw = False
+35.4455 	EXP 	indicate1: autoDraw = False
+35.4455 	EXP 	indcate2: autoDraw = False
+35.4455 	EXP 	indcate3: autoDraw = False
+35.4455 	EXP 	indicate4: autoDraw = False
+35.4455 	EXP 	square1: autoDraw = True
+35.4455 	EXP 	square2: autoDraw = True
+35.4455 	EXP 	square3: autoDraw = True
+35.4455 	EXP 	square4: autoDraw = True
+38.4368 	EXP 	New trial (rep=0, index=2): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 0, 0]), ('color3', [1, 1, 1]), ('color4', [1, 1, 1])])
+38.4444 	EXP 	square1: autoDraw = False
+38.4444 	EXP 	square2: autoDraw = False
+38.4444 	EXP 	square3: autoDraw = False
+38.4444 	EXP 	square4: autoDraw = False
+38.4444 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+38.4444 	EXP 	indcate2: fillColor = '[1. 0. 0.] (rgb)'
+38.4444 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+38.4444 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+38.4444 	EXP 	pause: autoDraw = True
+38.4444 	EXP 	indicate1: autoDraw = True
+38.4444 	EXP 	indcate2: autoDraw = True
+38.4444 	EXP 	indcate3: autoDraw = True
+38.4444 	EXP 	indicate4: autoDraw = True
+39.4412 	EXP 	pause: autoDraw = False
+39.4412 	EXP 	indicate1: autoDraw = False
+39.4412 	EXP 	indcate2: autoDraw = False
+39.4412 	EXP 	indcate3: autoDraw = False
+39.4412 	EXP 	indicate4: autoDraw = False
+39.4412 	EXP 	square1: autoDraw = True
+39.4412 	EXP 	square2: autoDraw = True
+39.4412 	EXP 	square3: autoDraw = True
+39.4412 	EXP 	square4: autoDraw = True
+42.4306 	EXP 	New trial (rep=0, index=3): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 1, 1]), ('color4', [1, 0, 0])])
+42.4385 	EXP 	square1: autoDraw = False
+42.4385 	EXP 	square2: autoDraw = False
+42.4385 	EXP 	square3: autoDraw = False
+42.4385 	EXP 	square4: autoDraw = False
+42.4385 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+42.4385 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+42.4385 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+42.4385 	EXP 	indicate4: fillColor = '[1. 0. 0.] (rgb)'
+42.4385 	EXP 	pause: autoDraw = True
+42.4385 	EXP 	indicate1: autoDraw = True
+42.4385 	EXP 	indcate2: autoDraw = True
+42.4385 	EXP 	indcate3: autoDraw = True
+42.4385 	EXP 	indicate4: autoDraw = True
+43.4390 	EXP 	pause: autoDraw = False
+43.4390 	EXP 	indicate1: autoDraw = False
+43.4390 	EXP 	indcate2: autoDraw = False
+43.4390 	EXP 	indcate3: autoDraw = False
+43.4390 	EXP 	indicate4: autoDraw = False
+43.4390 	EXP 	square1: autoDraw = True
+43.4390 	EXP 	square2: autoDraw = True
+43.4390 	EXP 	square3: autoDraw = True
+43.4390 	EXP 	square4: autoDraw = True
+46.4379 	EXP 	square1: autoDraw = False
+46.4379 	EXP 	square2: autoDraw = False
+46.4379 	EXP 	square3: autoDraw = False
+46.4379 	EXP 	square4: autoDraw = False
+46.4379 	EXP 	blank_img: autoDraw = True
+47.4321 	EXP 	New trial (rep=2, index=0): None
+47.4401 	EXP 	blank_img: autoDraw = False
+47.4401 	EXP 	blank_img: autoDraw = True
+48.4396 	EXP 	Imported conditions.xlsx as conditions, 4 conditions, 4 params
+48.4398 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+48.4400 	EXP 	New trial (rep=0, index=0): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 0, 0]), ('color4', [1, 1, 1])])
+48.4423 	EXP 	blank_img: autoDraw = False
+48.4423 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+48.4423 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+48.4423 	EXP 	indcate3: fillColor = '[1. 0. 0.] (rgb)'
+48.4423 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+48.4423 	EXP 	pause: autoDraw = True
+48.4423 	EXP 	indicate1: autoDraw = True
+48.4423 	EXP 	indcate2: autoDraw = True
+48.4423 	EXP 	indcate3: autoDraw = True
+48.4423 	EXP 	indicate4: autoDraw = True
+49.4447 	EXP 	pause: autoDraw = False
+49.4447 	EXP 	indicate1: autoDraw = False
+49.4447 	EXP 	indcate2: autoDraw = False
+49.4447 	EXP 	indcate3: autoDraw = False
+49.4447 	EXP 	indicate4: autoDraw = False
+49.4447 	EXP 	square1: autoDraw = True
+49.4447 	EXP 	square2: autoDraw = True
+49.4447 	EXP 	square3: autoDraw = True
+49.4447 	EXP 	square4: autoDraw = True
+52.4370 	EXP 	New trial (rep=0, index=1): OrderedDict([('color1', [1, 0, 0]), ('color2', [1, 1, 1]), ('color3', [1, 1, 1]), ('color4', [1, 1, 1])])
+52.4433 	EXP 	square1: autoDraw = False
+52.4433 	EXP 	square2: autoDraw = False
+52.4433 	EXP 	square3: autoDraw = False
+52.4433 	EXP 	square4: autoDraw = False
+52.4433 	EXP 	indicate1: fillColor = '[1. 0. 0.] (rgb)'
+52.4433 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+52.4433 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+52.4433 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+52.4433 	EXP 	pause: autoDraw = True
+52.4433 	EXP 	indicate1: autoDraw = True
+52.4433 	EXP 	indcate2: autoDraw = True
+52.4433 	EXP 	indcate3: autoDraw = True
+52.4433 	EXP 	indicate4: autoDraw = True
+53.4376 	EXP 	pause: autoDraw = False
+53.4376 	EXP 	indicate1: autoDraw = False
+53.4376 	EXP 	indcate2: autoDraw = False
+53.4376 	EXP 	indcate3: autoDraw = False
+53.4376 	EXP 	indicate4: autoDraw = False
+53.4376 	EXP 	square1: autoDraw = True
+53.4376 	EXP 	square2: autoDraw = True
+53.4376 	EXP 	square3: autoDraw = True
+53.4376 	EXP 	square4: autoDraw = True
+56.4371 	EXP 	New trial (rep=0, index=2): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 0, 0]), ('color3', [1, 1, 1]), ('color4', [1, 1, 1])])
+56.4444 	EXP 	square1: autoDraw = False
+56.4444 	EXP 	square2: autoDraw = False
+56.4444 	EXP 	square3: autoDraw = False
+56.4444 	EXP 	square4: autoDraw = False
+56.4444 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+56.4444 	EXP 	indcate2: fillColor = '[1. 0. 0.] (rgb)'
+56.4444 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+56.4444 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+56.4444 	EXP 	pause: autoDraw = True
+56.4444 	EXP 	indicate1: autoDraw = True
+56.4444 	EXP 	indcate2: autoDraw = True
+56.4444 	EXP 	indcate3: autoDraw = True
+56.4444 	EXP 	indicate4: autoDraw = True
+57.4383 	EXP 	pause: autoDraw = False
+57.4383 	EXP 	indicate1: autoDraw = False
+57.4383 	EXP 	indcate2: autoDraw = False
+57.4383 	EXP 	indcate3: autoDraw = False
+57.4383 	EXP 	indicate4: autoDraw = False
+57.4383 	EXP 	square1: autoDraw = True
+57.4383 	EXP 	square2: autoDraw = True
+57.4383 	EXP 	square3: autoDraw = True
+57.4383 	EXP 	square4: autoDraw = True
+60.4346 	EXP 	New trial (rep=0, index=3): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 1, 1]), ('color4', [1, 0, 0])])
+60.4423 	EXP 	square1: autoDraw = False
+60.4423 	EXP 	square2: autoDraw = False
+60.4423 	EXP 	square3: autoDraw = False
+60.4423 	EXP 	square4: autoDraw = False
+60.4423 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+60.4423 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+60.4423 	EXP 	indcate3: fillColor = '[1. 1. 1.] (rgb)'
+60.4423 	EXP 	indicate4: fillColor = '[1. 0. 0.] (rgb)'
+60.4423 	EXP 	pause: autoDraw = True
+60.4423 	EXP 	indicate1: autoDraw = True
+60.4423 	EXP 	indcate2: autoDraw = True
+60.4423 	EXP 	indcate3: autoDraw = True
+60.4423 	EXP 	indicate4: autoDraw = True
+61.4444 	EXP 	pause: autoDraw = False
+61.4444 	EXP 	indicate1: autoDraw = False
+61.4444 	EXP 	indcate2: autoDraw = False
+61.4444 	EXP 	indcate3: autoDraw = False
+61.4444 	EXP 	indicate4: autoDraw = False
+61.4444 	EXP 	square1: autoDraw = True
+61.4444 	EXP 	square2: autoDraw = True
+61.4444 	EXP 	square3: autoDraw = True
+61.4444 	EXP 	square4: autoDraw = True
+64.4433 	EXP 	square1: autoDraw = False
+64.4433 	EXP 	square2: autoDraw = False
+64.4433 	EXP 	square3: autoDraw = False
+64.4433 	EXP 	square4: autoDraw = False
+64.4433 	EXP 	blank_img: autoDraw = True
+65.4455 	EXP 	blank_img: autoDraw = False
+65.5488 	EXP 	window1: mouseVisible = True
