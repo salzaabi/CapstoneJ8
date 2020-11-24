@@ -1,0 +1,92 @@
+0.2509 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+1.6984 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+5.4203 	WARNING 	User requested fullscreen with size [1920 1080], but screen is actually [3440, 1440]. Using actual size
+5.7144 	WARNING 	Framebuffer object (FBO) not supported on this graphics card
+5.8382 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=UNKNOWN, color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=UNKNOWN, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002E09B53DDC0>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000002E09B59ECD0>, multiSample=False, name='window1', numSamples=2, pos=None, screen=2, size=array([3440, 1440]), stencilBits=UNKNOWN, stereo=False, units='height', useFBO=False, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pygame')
+5.8383 	EXP 	window1: mouseVisible = True
+5.8383 	EXP 	window1: recordFrameIntervals = False
+5.8467 	EXP 	window1: recordFrameIntervals = True
+5.8543 	EXP 	window1: recordFrameIntervals = False
+5.8766 	EXP 	Created square1 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square1', opacity=1.0, ori=array(0.), pos=array([  0., 400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+5.8775 	EXP 	Created square2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-2.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square2', opacity=1.0, ori=array(0.), pos=array([-400.,    0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+5.8784 	EXP 	Created square3 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-3.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square3', opacity=1.0, ori=array(0.), pos=array([400.,   0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+5.8794 	EXP 	Created square4 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-4.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square4', opacity=1.0, ori=array(0.), pos=array([   0., -400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+5.8894 	EXP 	Created image = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='image', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.3, 0.3]), texRes=128, units='height', win=Window(...))
+5.9395 	EXP 	image: image = 'game.jpg'
+5.9395 	EXP 	image: image = 'game.jpg'
+5.9395 	EXP 	square1: autoDraw = True
+5.9395 	EXP 	square2: autoDraw = True
+5.9395 	EXP 	square3: autoDraw = True
+5.9395 	EXP 	square4: autoDraw = True
+5.9395 	EXP 	image: autoDraw = True
+5.9805 	EXP 	image: image = 'game.jpg'
+6.0011 	EXP 	image: image = 'game.jpg'
+6.0132 	EXP 	image: image = 'game.jpg'
+6.0253 	EXP 	image: image = 'game.jpg'
+6.0696 	EXP 	image: image = 'game.jpg'
+6.0906 	EXP 	image: image = 'game.jpg'
+6.2256 	EXP 	image: image = 'game.jpg'
+6.2463 	EXP 	image: image = 'game.jpg'
+6.2554 	EXP 	image: image = 'game.jpg'
+6.2720 	EXP 	image: image = 'game.jpg'
+6.2863 	EXP 	image: image = 'game.jpg'
+6.3028 	EXP 	image: image = 'game.jpg'
+6.3205 	EXP 	image: image = 'game.jpg'
+6.3377 	EXP 	image: image = 'game.jpg'
+6.3546 	EXP 	image: image = 'game.jpg'
+6.3713 	EXP 	image: image = 'game.jpg'
+6.3868 	EXP 	image: image = 'game.jpg'
+6.4032 	EXP 	image: image = 'game.jpg'
+6.4219 	EXP 	image: image = 'game.jpg'
+6.4392 	EXP 	image: image = 'game.jpg'
+6.4537 	EXP 	image: image = 'game.jpg'
+6.4729 	EXP 	image: image = 'game.jpg'
+6.4889 	EXP 	image: image = 'game.jpg'
+6.5052 	EXP 	image: image = 'game.jpg'
+6.5219 	EXP 	image: image = 'game.jpg'
+6.5412 	EXP 	image: image = 'game.jpg'
+6.5586 	EXP 	image: image = 'game.jpg'
+6.5750 	EXP 	image: image = 'game.jpg'
+6.5878 	EXP 	image: image = 'game.jpg'
+6.6045 	EXP 	image: image = 'game.jpg'
+6.6258 	EXP 	image: image = 'game.jpg'
+6.6488 	EXP 	image: image = 'game.jpg'
+6.6561 	EXP 	image: image = 'game.jpg'
+6.6739 	EXP 	image: image = 'game.jpg'
+6.6911 	EXP 	image: image = 'game.jpg'
+6.7064 	EXP 	image: image = 'game.jpg'
+6.7278 	EXP 	image: image = 'game.jpg'
+6.7412 	EXP 	image: image = 'game.jpg'
+6.7613 	EXP 	image: image = 'game.jpg'
+6.7784 	EXP 	image: image = 'game.jpg'
+6.7949 	EXP 	image: image = 'game.jpg'
+6.8090 	EXP 	image: image = 'game.jpg'
+6.8242 	EXP 	image: image = 'game.jpg'
+6.8412 	EXP 	image: image = 'game.jpg'
+6.8855 	EXP 	image: image = 'game.jpg'
+6.9023 	EXP 	image: image = 'game.jpg'
+6.9102 	EXP 	image: image = 'game.jpg'
+6.9285 	EXP 	image: image = 'game.jpg'
+6.9475 	EXP 	image: image = 'game.jpg'
+6.9604 	EXP 	image: image = 'game.jpg'
+6.9795 	EXP 	image: image = 'game.jpg'
+6.9945 	EXP 	image: image = 'game.jpg'
+7.0128 	EXP 	image: image = 'game.jpg'
+7.0277 	EXP 	image: image = 'game.jpg'
+7.0458 	EXP 	image: image = 'game.jpg'
+7.0615 	EXP 	image: image = 'game.jpg'
+7.0784 	EXP 	image: image = 'game.jpg'
+7.0953 	EXP 	image: image = 'game.jpg'
+7.1117 	EXP 	image: image = 'game.jpg'
+7.2446 	EXP 	image: image = 'game.jpg'
+7.3622 	EXP 	image: image = 'game.jpg'
+7.4827 	EXP 	image: image = 'game.jpg'
+7.6168 	EXP 	image: image = 'game.jpg'
+7.7353 	EXP 	image: image = 'game.jpg'
+7.8577 	EXP 	image: image = 'game.jpg'
+8.0060 	EXP 	image: image = 'game.jpg'
+8.1109 	EXP 	image: image = 'game.jpg'
+8.2317 	EXP 	image: image = 'game.jpg'
+8.3661 	EXP 	image: image = 'game.jpg'
+8.4892 	EXP 	image: image = 'game.jpg'
+8.6088 	EXP 	image: image = 'game.jpg'

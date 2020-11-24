@@ -1,0 +1,55 @@
+0.7415 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+2.3914 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+5.6929 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001DA6386CAC0>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001DA6390DA60>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.6933 	EXP 	window1: mouseVisible = True
+5.6933 	EXP 	window1: recordFrameIntervals = False
+5.7759 	EXP 	window1: recordFrameIntervals = True
+5.8557 	WARNING 	t of last frame was 21.58ms (=1/46)
+5.8675 	WARNING 	t of last frame was 11.85ms (=1/84)
+5.9426 	WARNING 	t of last frame was 16.67ms (=1/59)
+6.0515 	WARNING 	t of last frame was 34.10ms (=1/29)
+6.0669 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+6.0871 	DATA 	Mouse: Left button down, pos=(790,237)
+6.1801 	DATA 	Mouse:  Left button up, pos=(784,234)
+6.6512 	EXP 	window1: recordFrameIntervals = False
+8.2761 	EXP 	Created instructions = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructions', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='Welcome, this is the instructions!', units='height', win=Window(...), wrapWidth=1)
+8.2771 	EXP 	Created blank_img = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=None, interpolate=True, mask=None, maskParams=None, name='blank_img', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128, units='height', win=Window(...))
+8.2844 	EXP 	Created pause = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='pause', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='PAUSE', units='height', win=Window(...), wrapWidth=1)
+8.2855 	EXP 	Created indicate1 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indicate1', opacity=1.0, ori=array(0.), pos=array([  0., 400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.2863 	EXP 	Created indcate2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-2.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indcate2', opacity=1.0, ori=array(0.), pos=array([-400.,    0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.2872 	EXP 	Created indcate3 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-3.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indcate3', opacity=1.0, ori=array(0.), pos=array([400.,   0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.2882 	EXP 	Created indicate4 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-4.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 0., 0.]), lineColorSpace='rgb', lineRGB=array([1., 0., 0.]), lineWidth=1, name='indicate4', opacity=1.0, ori=array(0.), pos=array([   0., -400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.5560 	EXP 	Created square1 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square1', opacity=1.0, ori=array(0.), pos=array([  0., 400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.5572 	EXP 	Created square2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-2.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square2', opacity=1.0, ori=array(0.), pos=array([-400.,    0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.5583 	EXP 	Created square3 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-3.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square3', opacity=1.0, ori=array(0.), pos=array([400.,   0.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.5593 	EXP 	Created square4 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-4.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1, name='square4', opacity=1.0, ori=array(0.), pos=array([   0., -400.]), size=array([200., 200.]), units='pix', vertices=ndarray(...), win=Window(...))
+8.5601 	EXP 	Created blank_img = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=None, interpolate=True, mask=None, maskParams=None, name='blank_img', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128, units='height', win=Window(...))
+8.5619 	EXP 	instructions: autoDraw = True
+17.9242 	DATA 	Keypress: space
+17.9311 	EXP 	Created sequence: sequential, trialTypes=1, nReps=3, seed=None
+17.9312 	EXP 	New trial (rep=0, index=0): None
+17.9390 	EXP 	instructions: autoDraw = False
+17.9390 	EXP 	blank_img: autoDraw = True
+18.9417 	EXP 	Imported conditions.xlsx as conditions, 4 conditions, 4 params
+18.9419 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+18.9421 	EXP 	New trial (rep=0, index=0): OrderedDict([('color1', [1, 1, 1]), ('color2', [1, 1, 1]), ('color3', [1, 0, 0]), ('color4', [1, 1, 1])])
+18.9450 	EXP 	blank_img: autoDraw = False
+18.9450 	EXP 	indicate1: fillColor = '[1. 1. 1.] (rgb)'
+18.9450 	EXP 	indcate2: fillColor = '[1. 1. 1.] (rgb)'
+18.9450 	EXP 	indcate3: fillColor = '[1. 0. 0.] (rgb)'
+18.9450 	EXP 	indicate4: fillColor = '[1. 1. 1.] (rgb)'
+18.9450 	EXP 	pause: autoDraw = True
+18.9450 	EXP 	indicate1: autoDraw = True
+18.9450 	EXP 	indcate2: autoDraw = True
+18.9450 	EXP 	indcate3: autoDraw = True
+18.9450 	EXP 	indicate4: autoDraw = True
+19.9429 	EXP 	pause: autoDraw = False
+19.9429 	EXP 	indicate1: autoDraw = False
+19.9429 	EXP 	indcate2: autoDraw = False
+19.9429 	EXP 	indcate3: autoDraw = False
+19.9429 	EXP 	indicate4: autoDraw = False
+19.9429 	EXP 	square1: autoDraw = True
+19.9429 	EXP 	square2: autoDraw = True
+19.9429 	EXP 	square3: autoDraw = True
+19.9429 	EXP 	square4: autoDraw = True
+23.0231 	EXP 	window1: mouseVisible = True
