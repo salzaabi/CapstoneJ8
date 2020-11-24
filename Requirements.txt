@@ -88,6 +88,7 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pyboy==1.2.5
 pycparser==2.20
+pygame==2.0.0
 pyglet==1.5.8
 Pygments==2.7.1
 pymunk==5.7.0

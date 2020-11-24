@@ -71,6 +71,7 @@ win = visual.Window(
     units='height')
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
+expInfo['frameRate'] = 120
 if expInfo['frameRate'] != None:
     frameDur = 1.0 / round(expInfo['frameRate'])
 else:
@@ -82,9 +83,20 @@ defaultKeyboard = keyboard.Keyboard()
 # Initialize components for Routine "connect"
 connectClock = core.Clock()
 from cortex import Cortex
+import pandas as pd
 
+# Initialize our variables
 cortex = Cortex(None)
 cortex.do_prepare_steps()
+# generator = cortex.sub_request(['eeg'])
+generator = cortex.sub_request_pow(['pow'])
+next(generator).queue
+selected_square = None
+recording_data = [[] for i in range(4)]
+# data_columns = ["P7", "O1", "O2", "P8", "TIME"]
+data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
+                "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
+
 print("prepare steps done")
 
 # Initialize components for Routine "instr"
@@ -347,7 +359,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=3, method='sequential',
+trials = data.TrialHandler(nReps=25, method='sequential',
                            extraInfo=expInfo, originPath=-1,
                            trialList=[None],
                            seed=None, name='trials')
@@ -457,6 +469,12 @@ for thisTrial in trials:
         continueRoutine = True
         routineTimer.add(1.000000)
         # update component parameters for each repeat
+        for ind, color in enumerate([color1,color2,color3,color4]):
+            if color != [1,1,1]:
+                selected_square = ind
+
+        print(selected_square)
+
         indicate1.setFillColor(color1)
         indcate2.setFillColor(color2)
         indcate3.setFillColor(color3)
@@ -706,6 +724,11 @@ for thisTrial in trials:
             if square4.status == STARTED:  # only update if drawing
                 square4.setOpacity(sg.square(2 * np.pi * 5.45 * t), log=False)
 
+            ##################### EACH FRAME POG ###############################
+            if(frameN % int(expInfo['frameRate'] / 8) == 0):
+                next(generator).queue
+
+
             # check for quit (typically the Esc key)
             if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
                 core.quit()
@@ -735,6 +758,10 @@ for thisTrial in trials:
         circles.addData('square3.stopped', square3.tStopRefresh)
         circles.addData('square4.started', square4.tStartRefresh)
         circles.addData('square4.stopped', square4.tStopRefresh)
+        # SAVE STIMULUS DATA
+        queue_data = list(next(generator).queue)
+        recording_data[selected_square].append(queue_data)
+        print("SIZE: {}".format(len(queue_data)))
         thisExp.nextEntry()
 
     # completed 1 repeats of 'circles'
@@ -810,6 +837,15 @@ for thisTrial in trials:
     thisExp.nextEntry()
 
 # completed 3 repeats of 'trials'
+
+index = 0
+for recording_data in recording_data:
+    total_data = np.asarray(recording_data[0])
+    for data_segment in recording_data[1:]:
+        total_data = np.append(total_data, np.asarray(data_segment), axis=0)
+    data_as_df = pd.DataFrame(total_data, columns=data_columns)
+    data_as_df.to_csv('recordings\\psychopy_sultan_recording_{}.csv'.format(index))
+    index += 1
 
 
 # Flip one final time so any remaining win.callOnFlip()
