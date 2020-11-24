@@ -114,8 +114,8 @@ class live_predicting_window():
 
     def import_recording(self):
         # make sure name is ok
-        if 'recordings/' not in self.recording_name:
-            self.recording_name = 'recordings/' + self.recording_name
+        if 'old_bad_recordings/' not in self.recording_name:
+            self.recording_name = 'old_bad_recordings/' + self.recording_name
         if '.csv' not in self.recording_name:
             self.recording_name += '.csv'
         self.recording_data = pd.read_csv(self.recording_name)
@@ -173,6 +173,6 @@ class live_predicting_window():
 
 
 if __name__ == "__main__":
-    window = live_predicting_window('recordings/first_target_1')
+    window = live_predicting_window('old_bad_recordings/first_target_1')
     window.setup()
     window.run()

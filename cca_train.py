@@ -25,7 +25,6 @@ class cca_handler():
         self.getReferenceSignals1s()
 
         self.cca = CCA(n_components=1)
-        self.pca = load('models\pca')
         self.channels = ['O1', 'O2']
 
         self.fig = None
