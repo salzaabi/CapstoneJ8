@@ -1,0 +1,21 @@
+0.9506 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+3.1339 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+8.0104 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000163CBD6DA90>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000163CBE0D9D0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+8.0105 	EXP 	window1: mouseVisible = True
+8.0105 	EXP 	window1: recordFrameIntervals = False
+8.1649 	EXP 	window1: recordFrameIntervals = True
+8.2400 	WARNING 	t of last frame was 56.61ms (=1/17)
+8.3112 	WARNING 	t of last frame was 46.42ms (=1/21)
+8.3233 	WARNING 	t of last frame was 12.11ms (=1/82)
+8.3722 	WARNING 	t of last frame was 32.43ms (=1/30)
+8.3910 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+8.6151 	EXP 	window1: recordFrameIntervals = False
+8.6784 	EXP 	window1: mouseVisible = True
+0.7114 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+2.4641 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+4.2170 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000029F25D4DA90>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000029F25DED9D0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.2170 	EXP 	window1: mouseVisible = True
+4.2171 	EXP 	window1: recordFrameIntervals = False
+4.2999 	EXP 	window1: recordFrameIntervals = True
+4.3918 	EXP 	window1: recordFrameIntervals = False
+4.4590 	EXP 	window1: mouseVisible = True

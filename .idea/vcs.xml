@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/CapstoneJ8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../capstone_pokemon_bci" vcs="Git" />
   </component>
 </project>

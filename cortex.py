@@ -256,8 +256,8 @@ class Cortex:
             print(json.dumps(new_data, indent=4))
             print('\n')
         else:
-            # init a queue of max size 128 * seconds in each recording
-            data_queue = Queue(maxsize=128 * 1)
+            # init a queue of max size 120 * seconds in each recording
+            data_queue = Queue(maxsize=120 * 3)
             while True:
                 new_data = self.ws.recv()
                 data = ast.literal_eval(new_data)
@@ -265,6 +265,43 @@ class Cortex:
                 time = data.get('time')
                 if eeg is not None:
                     sig_data = list(eeg[7:11])
+                    sig_data.append(time)
+                    # if queue full, pop front item
+                    if data_queue.full():
+                        data_queue.get()
+                    # add new data to end of queue
+                    data_queue.put(sig_data)
+                    yield data_queue  # This is the data that is being streamed
+
+    def sub_request_pow(self, stream):
+        print('subscribe request --------------------------------')
+        sub_request_json = {
+            "jsonrpc": "2.0",
+            "method": "subscribe",
+            "params": {
+                "cortexToken": self.auth,
+                "session": self.session_id,
+                "streams": stream
+            },
+            "id": SUB_REQUEST_ID
+        }
+
+        self.ws.send(json.dumps(sub_request_json))
+
+        if 'sys' in stream:
+            new_data = self.ws.recv()
+            print(json.dumps(new_data, indent=4))
+            print('\n')
+        else:
+            # init a queue of max size 8 * seconds in each recording
+            data_queue = Queue(maxsize=8 * 3)
+            while True:
+                new_data = self.ws.recv()
+                data = ast.literal_eval(new_data)
+                pow = data.get('pow')
+                time = data.get('time')
+                if pow is not None:
+                    sig_data = list(pow[30:40])
                     sig_data.append(time)
                     # if queue full, pop front item
                     if data_queue.full():
