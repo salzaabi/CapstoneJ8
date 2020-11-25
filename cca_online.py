@@ -25,14 +25,14 @@ from command_handler import command_handler
 from pyboy_controller import pyboy_controller
 
 # Initialize our variables
-# cortex = Cortex(None)
-# cortex.do_prepare_steps()
-# # generator = cortex.sub_request(['eeg'])
-# generator = cortex.sub_request_pow(['pow'])
-# next(generator).queue
-data_columns = ["P7", "O1", "O2", "P8", "TIME"]
-# data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
-#                 "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
+cortex = Cortex(None)
+cortex.do_prepare_steps()
+# generator = cortex.sub_request(['eeg'])
+generator = cortex.sub_request_pow(['pow'])
+next(generator).queue
+# data_columns = ["P7", "O1", "O2", "P8", "TIME"]
+data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
+                "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
 
 #Initialize PyBoy
 # load rom through PyBoy
@@ -120,7 +120,7 @@ win = visual.Window(
     units='height')
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
-# expInfo['frameRate'] = 120
+expInfo['frameRate'] = 120
 if expInfo['frameRate'] != None:
     frameDur = 1.0 / round(expInfo['frameRate'])
 else:
@@ -400,16 +400,13 @@ while continueRoutine:
         square4.setOpacity(sg.square(2 * np.pi * 5.45 * t), log=False)
 
     ##################### EACH FRAME POG ###############################
-    # if (frameN % int(3 * expInfo['frameRate']) == 0 and frameN != 0):
-    #     queue_data = list(next(generator).queue)
-    #     print("SIZE: {}".format(len(queue_data)))
-    #     ml_data = np.asarray(queue_data)
-    #     handler.predict(ml_data)
-    # elif (frameN % int(expInfo['frameRate'] / 8) == 0):
-    #     queue_data = list(next(generator).queue)
-
-    # get CSV data - send command
-
+    if (frameN % int(3 * expInfo['frameRate']) == 0 and frameN != 0):
+        queue_data = list(next(generator).queue)
+        print("SIZE: {}".format(len(queue_data)))
+        ml_data = np.asarray(queue_data)
+        handler.predict(ml_data)
+    elif (frameN % int(expInfo['frameRate'] / 8) == 0):
+        queue_data = list(next(generator).queue)
 
     # *image* updates
     if image.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:
