@@ -12,14 +12,14 @@ import numpy as np
 # from pyboy.utils import WindowEvent
 # import sdl2
 # from command_handler import command_handler
-from cca_train import cca_handler
+from cca_handler import cca_handler
 import ctypes
 import time
 import re
 from psychopy import core, visual
 
 
-class live_predicting_window():
+class cca_simple_predicting_window():
 
     def __init__(self, recording_name='recordings/first_target_0.csv'):
 
@@ -79,7 +79,7 @@ class live_predicting_window():
 
     def setup_command_handler(self):
         # choose the desired command handler
-        self.command_handler = cca_handler()
+        self.command_handler = cca_handler(None, num_targets=4, num_seconds=1)
 
     # def on_update(self, delta_time):
     #     # check if done
@@ -173,6 +173,6 @@ class live_predicting_window():
 
 
 if __name__ == "__main__":
-    window = live_predicting_window('old_bad_recordings/first_target_1')
+    window = cca_simple_predicting_window('old_bad_recordings/first_target_1')
     window.setup()
     window.run()
