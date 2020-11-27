@@ -100,6 +100,10 @@ class cca_handler():
 
     def predict(self, data):
         # return the prediction to the program using this command handler
+
+        # make sure data shape and references shape are equal
+        if data.shape != self.ref_signals.shape:
+            return 0
         
         data = self.filter(data)
         corrs = self.findCorr(data, self.ref_signals)

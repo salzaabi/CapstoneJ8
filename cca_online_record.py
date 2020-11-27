@@ -37,6 +37,7 @@ next(generator).queue
 data_columns = ["P7", "O1", "O2", "P8", "TIME"]
 # data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
 #                 "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
+num_seconds = 3
 
 
 #Initialize PyBoy
