@@ -5,14 +5,12 @@ from sklearn.cross_decomposition import CCA
 
 from FilterClass import Filter
 
-# TODO: optional plotting functions
+# TODO: optional plotting functions - separate class?
 # TODO: apply filtering
 
 class cca_handler():
 
     def __init__(self, controller, num_targets=4, num_seconds=3):
-        # if plotting is enabled, a matplotlib window will open and update with
-        # the EEG data coming into the predictor
 
         self.controller = controller
         
@@ -21,6 +19,7 @@ class cca_handler():
 
         self.sampling_rate = 128.0
         # frequencies calculated by frames/len(array) as seen in flicker_patterns.txt
+        # or frequencies are set from paper we are basing our experiment from 
         # check for either 4 or 8 targets
         if self.num_targets == 8:
             self.frequencies = [32.0, 21.33, 14.22, 42.67, 16.0, 64.0, 25.6, 18.29]
@@ -30,10 +29,10 @@ class cca_handler():
             self.frequencies = [5.45, 8.57, 12.0, 15.0]
         else:
             print("cca did not get a good number of targets!")
+
         # prediction should be targets 1 to num_targets, not 0 to num_targets - 1
         # based on command_to_keyboard action
         self.prediction = None 
-        # self.keyboard = Controller()
 
         self.ref_signals = [] 
         self.getAllReferenceSignals()
@@ -96,12 +95,13 @@ class cca_handler():
         return result
 
     def filter(self, data):
-        return self.filter_obj.fir(data)
+        # perform filtering based on some function in FilterClass
+        return self.filter_obj.fir_band(data, band_edges=[1.0, 50.0])
 
     def predict(self, data):
         # return the prediction to the program using this command handler
         
-        # data = self.filter(data)
+        data = self.filter(data)
         corrs = self.findCorr(data, self.ref_signals)
         self.prediction = np.argmax(corrs)
         print("Predicted Target: {}".format(self.prediction))

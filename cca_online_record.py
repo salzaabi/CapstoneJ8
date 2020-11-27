@@ -29,31 +29,15 @@ import time
 
 
 # Initialize our variables
-use_csv = True
-# TEMP: feel free to change how I do this. I say 'if not using csv then use emotiv' here and in #EACHFRAMEPOG - Matt
-# NOTE: still will save a csv file even though I am reading from a csv file
-if not use_csv:
-    cortex = Cortex(None)
-    cortex.do_prepare_steps()
-    generator = cortex.sub_request(['eeg'])
-    # generator = cortex.sub_request_pow(['pow'])
-    next(generator).queue
-    data_columns = ["P7", "O1", "O2", "P8", "TIME"]
-    # data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
-    #                 "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
+cortex = Cortex(None)
+cortex.do_prepare_steps()
+generator = cortex.sub_request(['eeg'])
+# generator = cortex.sub_request_pow(['pow'])
+next(generator).queue
+data_columns = ["P7", "O1", "O2", "P8", "TIME"]
+# data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
+#                 "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
 
-
-# CSV CONTROL
-if use_csv:
-    recording_data = pd.read_csv('old_bad_recordings/first_target_0.csv')
-    record_length = len(recording_data.index)
-    channels = ['P7', 'O1', 'O2', 'P8'] # only data channels
-    row_index = 0
-    num_seconds = 3 # changing this will affect the time taken for each command
-    csv_eeg_data = None
-    start_time = time.time()
-    elapsed = 0
-    speedrun = True # run through file at ludricrous speed - unnecessary testing
 
 #Initialize PyBoy
 # load rom through PyBoy
@@ -423,38 +407,13 @@ while continueRoutine:
 
     ##################### EACH FRAME POG ###############################
 
-    # get CSV data - send command
-    if use_csv:
-        if row_index >= record_length or (record_length - row_index) < 128 * num_seconds:
-            print('-'*20)
-            print('Done reading file. Exiting')
-            print('-'*20)
-            core.quit()
-        elif endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            print('-'*20)
-            print('Ending experiment now. Exiting')
-            print('-'*20)
-            core.quit()
-
-        # send command every (num_seconds)
-        if (frameN % int(num_seconds * expInfo['frameRate']) == 0 and frameN != 0) or speedrun:
-            # print('row_index at {} of {} rows'.format(row_index, record_length))
-            elapsed = time.time() - start_time
-            print('time elapsed = {} s'.format(elapsed))
-            csv_eeg_data = np.asarray(recording_data[channels][row_index:row_index + 128 * num_seconds])
-            handler.predict(csv_eeg_data)
-            row_index += (128 * num_seconds)
-            start_time = time.time()
-
-    # otherwise, predict from EEG
-    else:
-        if (frameN % int(num_seconds * expInfo['frameRate']) == 0 and frameN != 0):
-            queue_data = list(next(generator).queue)
-            print("SIZE: {}".format(len(queue_data)))
-            ml_data = np.asarray(queue_data)
-            handler.predict(ml_data)
-        elif (frameN % int(expInfo['frameRate'] / 8) == 0):
-            queue_data = list(next(generator).queue)
+    if (frameN % int(3 * expInfo['frameRate']) == 0 and frameN != 0):
+        queue_data = list(next(generator).queue)
+        print("SIZE: {}".format(len(queue_data)))
+        ml_data = np.asarray(queue_data)
+        handler.predict(ml_data)
+    elif (frameN % int(expInfo['frameRate'] / 8) == 0):
+        queue_data = list(next(generator).queue)
 
     # *image* updates
     if image.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:

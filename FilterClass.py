@@ -52,7 +52,7 @@ class Filter:
 
         return data
 
-    def fir_band(self, data, num_taps=400, band_edges=[1.0, 50.0], fs=128.0, offset_mode='zero'):
+    def fir_band(self, data, num_taps=400, band_edges=[1.0, 50.0], fs=128.0):
         data = self._format_data(data)
         filt = firwin(num_taps, band_edges, pass_zero=False, fs=fs)
 

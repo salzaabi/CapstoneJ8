@@ -14,7 +14,6 @@ If you publish work using this script the most relevant publication is:
 
 from __future__ import absolute_import, division
 
-from cortex import Cortex
 import pandas as pd
 import sdl2
 from PIL import Image
@@ -23,37 +22,26 @@ import ctypes
 from time import sleep
 import os
 from command_handler import command_handler
-from cca_handler import cca_handler
 from pyboy_controller import pyboy_controller
 import time
 
 
 # Initialize our variables
-use_csv = True
-# TEMP: feel free to change how I do this. I say 'if not using csv then use emotiv' here and in #EACHFRAMEPOG - Matt
-# NOTE: still will save a csv file even though I am reading from a csv file
-if not use_csv:
-    cortex = Cortex(None)
-    cortex.do_prepare_steps()
-    generator = cortex.sub_request(['eeg'])
-    # generator = cortex.sub_request_pow(['pow'])
-    next(generator).queue
-    data_columns = ["P7", "O1", "O2", "P8", "TIME"]
+    # data_columns = ["P7", "O1", "O2", "P8", "TIME"]
     # data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
     #                 "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
 
 
 # CSV CONTROL
-if use_csv:
-    recording_data = pd.read_csv('old_bad_recordings/first_target_0.csv')
-    record_length = len(recording_data.index)
-    channels = ['P7', 'O1', 'O2', 'P8'] # only data channels
-    row_index = 0
-    num_seconds = 3 # changing this will affect the time taken for each command
-    csv_eeg_data = None
-    start_time = time.time()
-    elapsed = 0
-    speedrun = True # run through file at ludricrous speed - unnecessary testing
+recording_data = pd.read_csv('old_bad_recordings/first_target_0.csv')
+record_length = len(recording_data.index)
+channels = ['P7', 'O1', 'O2', 'P8'] # only data channels
+row_index = 0
+num_seconds = 3 # changing this will affect the time taken for each command
+csv_eeg_data = None
+start_time = time.time()
+elapsed = 0
+speedrun = True # run through file at ludricrous speed - unnecessary testing
 
 #Initialize PyBoy
 # load rom through PyBoy
@@ -105,28 +93,28 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-psychopyVersion = '2020.2.6'
-expName = 'online'  # from the Builder filename that created this script
-expInfo = {'participant': '', 'session': '001'}
-dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
-if dlg.OK == False:
-    core.quit()  # user pressed cancel
-expInfo['date'] = data.getDateStr()  # add a simple timestamp
-expInfo['expName'] = expName
-expInfo['psychopyVersion'] = psychopyVersion
+# psychopyVersion = '2020.2.6'
+# expName = 'online'  # from the Builder filename that created this script
+# expInfo = {'participant': '', 'session': '001'}
+# dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
+# if dlg.OK == False:
+#     core.quit()  # user pressed cancel
+# expInfo['date'] = data.getDateStr()  # add a simple timestamp
+# expInfo['expName'] = expName
+# expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
+# filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
-thisExp = data.ExperimentHandler(name=expName, version='',
-                                 extraInfo=expInfo, runtimeInfo=None,
-                                 originPath='C:\\Users\\sulta\\OneDrive\\Desktop\\Capstone Project PsychoPy\\online\\online.py',
-                                 savePickle=True, saveWideText=True,
-                                 dataFileName=filename)
+# thisExp = data.ExperimentHandler(name=expName, version='',
+#                                  extraInfo=expInfo, runtimeInfo=None,
+#                                  originPath='C:\\Users\\sulta\\OneDrive\\Desktop\\Capstone Project PsychoPy\\online\\online.py',
+#                                  savePickle=True, saveWideText=True,
+#                                  dataFileName=filename)
 # save a log file for detail verbose info
-logFile = logging.LogFile(filename + '.log', level=logging.EXP)
-logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
+# logFile = logging.LogFile(filename + '.log', level=logging.EXP)
+# logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
 frameTolerance = 0.001  # how close to onset before 'same' frame
@@ -141,12 +129,14 @@ win = visual.Window(
     blendMode='avg', useFBO=True,
     units='height')
 # store frame rate of monitor if we can measure it
-expInfo['frameRate'] = win.getActualFrameRate()
+# expInfo['frameRate'] = win.getActualFrameRate()
 # expInfo['frameRate'] = 120
-if expInfo['frameRate'] != None:
-    frameDur = 1.0 / round(expInfo['frameRate'])
-else:
-    frameDur = 1.0 / 60.0  # could not measure, so guess
+# if expInfo['frameRate'] != None:
+#     frameDur = 1.0 / round(expInfo['frameRate'])
+# else:
+#     frameDur = 1.0 / 60.0  # could not measure, so guess
+
+frameDur = 1.0 / 60.0 # just guess
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
@@ -424,37 +414,26 @@ while continueRoutine:
     ##################### EACH FRAME POG ###############################
 
     # get CSV data - send command
-    if use_csv:
-        if row_index >= record_length or (record_length - row_index) < 128 * num_seconds:
-            print('-'*20)
-            print('Done reading file. Exiting')
-            print('-'*20)
-            core.quit()
-        elif endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            print('-'*20)
-            print('Ending experiment now. Exiting')
-            print('-'*20)
-            core.quit()
+    if row_index >= record_length or (record_length - row_index) < 128 * num_seconds:
+        print('-'*20)
+        print('Done reading file. Exiting')
+        print('-'*20)
+        core.quit()
+    elif endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        print('-'*20)
+        print('Ending experiment now. Exiting')
+        print('-'*20)
+        core.quit()
 
-        # send command every (num_seconds)
-        if (frameN % int(num_seconds * expInfo['frameRate']) == 0 and frameN != 0) or speedrun:
-            # print('row_index at {} of {} rows'.format(row_index, record_length))
-            elapsed = time.time() - start_time
-            print('time elapsed = {} s'.format(elapsed))
-            csv_eeg_data = np.asarray(recording_data[channels][row_index:row_index + 128 * num_seconds])
-            handler.predict(csv_eeg_data)
-            row_index += (128 * num_seconds)
-            start_time = time.time()
-
-    # otherwise, predict from EEG
-    else:
-        if (frameN % int(num_seconds * expInfo['frameRate']) == 0 and frameN != 0):
-            queue_data = list(next(generator).queue)
-            print("SIZE: {}".format(len(queue_data)))
-            ml_data = np.asarray(queue_data)
-            handler.predict(ml_data)
-        elif (frameN % int(expInfo['frameRate'] / 8) == 0):
-            queue_data = list(next(generator).queue)
+    # send command every (num_seconds)
+    if (frameN % int(num_seconds * (1.0 / frameDur)) == 0 and frameN != 0) or speedrun:
+        # print('row_index at {} of {} rows'.format(row_index, record_length))
+        elapsed = time.time() - start_time
+        print('time elapsed = {} s'.format(elapsed))
+        csv_eeg_data = np.asarray(recording_data[channels][row_index:row_index + 128 * num_seconds])
+        handler.predict(csv_eeg_data)
+        row_index += (128 * num_seconds)
+        start_time = time.time()
 
     # *image* updates
     if image.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:
@@ -464,10 +443,6 @@ while continueRoutine:
         image.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
         image.setAutoDraw(True)
-
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
 
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -556,9 +531,9 @@ routineTimer.reset()
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
-thisExp.saveAsWideText(filename + '.csv', delim='auto')
-thisExp.saveAsPickle(filename)
-logging.flush()
+# thisExp.saveAsWideText(filename + '.csv', delim='auto')
+# thisExp.saveAsPickle(filename)
+# logging.flush()
 # make sure everything is closed down
 
 thisExp.abort()  # or data files will save again on exit
