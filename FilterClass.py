@@ -104,6 +104,10 @@ class Filter:
         y = filtfilt(b, a, data)
         return y
 
+    def car_filter(self, data):
+        return data - np.average(data)
+
+
 # some test code just to show it runs (change for ur machine)
 # df = pd.read_csv("C:/Users/Chris Zarba/PycharmProjects/capstone_pokemon_bci/recordings/simple_recording_sultan_0.csv")
 # FS = Filter()

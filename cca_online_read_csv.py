@@ -26,6 +26,7 @@ from command_handler import command_handler
 from cca_handler import cca_handler
 from pyboy_controller import pyboy_controller
 import time
+import sys
 
 
 # Initialize our variables
@@ -35,7 +36,9 @@ import time
 
 
 # CSV CONTROL
-recording_data = pd.read_csv('old_bad_recordings/first_target_0.csv')
+# data_filename = 'old_bad_recordings/first_target_0.csv'
+data_filename = 'sultan_psychopy_recordings/eeg_psychopy_sultan_recording_3.csv'
+recording_data = pd.read_csv(data_filename)
 record_length = len(recording_data.index)
 channels = ['P7', 'O1', 'O2', 'P8'] # only data channels
 row_index = 0
@@ -44,6 +47,7 @@ csv_eeg_data = None
 start_time = time.time()
 elapsed = 0
 speedrun = True # run through file at ludricrous speed - unnecessary testing
+actions = []
 
 #Initialize PyBoy
 # load rom through PyBoy
@@ -420,10 +424,14 @@ while continueRoutine:
         print('-'*20)
         print('Done reading file. Exiting')
         print('-'*20)
+        print([i for i in actions])
+        print('-'*20)
         core.quit()
     elif endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
         print('-'*20)
         print('Ending experiment now. Exiting')
+        print('-'*20)
+        print([i for i in actions])
         print('-'*20)
         core.quit()
 
@@ -433,7 +441,9 @@ while continueRoutine:
         elapsed = time.time() - start_time
         print('time elapsed = {} s'.format(elapsed))
         csv_eeg_data = np.asarray(recording_data[channels][row_index:row_index + 128 * num_seconds])
-        handler.predict(csv_eeg_data)
+        # I am returning the predicted command from cca_handler.predict
+        action = handler.predict(csv_eeg_data)
+        actions.append(action)
         row_index += (128 * num_seconds)
         start_time = time.time()
 

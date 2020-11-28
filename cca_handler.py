@@ -96,23 +96,24 @@ class cca_handler():
 
     def filter(self, data):
         # perform filtering based on some function in FilterClass
-        return self.filter_obj.fir_band(data, band_edges=[1.0, 50.0])
+        data = self.filter_obj.fir_band(data, band_edges=[3.0, 50.0])
+        return self.filter_obj.car_filter(data)
 
     def predict(self, data):
         # return the prediction to the program using this command handler
 
         # make sure data shape and references shape are equal
-        if data.shape != self.ref_signals.shape:
+        if data.T.shape != self.ref_signals[0].shape:
+            print("unequal shapes: data -> {} \t ref_signals -> {}. choosing non-action.".format(data.shape, self.ref_signals[0].shape))
             return 0
         
-        data = self.filter(data)
+        # data = self.filter(data)
         corrs = self.findCorr(data, self.ref_signals)
         self.prediction = np.argmax(corrs)
         print("Predicted Target: {}".format(self.prediction))
         # if self.plotting:
         #     self.plot_signals(data)
             
-        # comment this line below out for no key pressing across all your applications!
         if self.controller is not None:
             self.command_to_keyboard_action(self.prediction + 1)
         
