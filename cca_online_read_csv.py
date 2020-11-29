@@ -22,7 +22,7 @@ from pyboy import PyBoy
 import ctypes
 from time import sleep
 import os
-from command_handler import command_handler
+# from command_handler import command_handler
 from cca_handler import cca_handler
 from pyboy_controller import pyboy_controller
 import time

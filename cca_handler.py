@@ -96,7 +96,7 @@ class cca_handler():
 
     def filter(self, data):
         # perform filtering based on some function in FilterClass
-        data = self.filter_obj.fir_band(data, band_edges=[3.0, 50.0])
+        data = self.filter_obj.butter_filter(data)
         return self.filter_obj.car_filter(data)
 
     def predict(self, data):
@@ -107,7 +107,7 @@ class cca_handler():
             print("unequal shapes: data -> {} \t ref_signals -> {}. choosing non-action.".format(data.shape, self.ref_signals[0].shape))
             return 0
         
-        # data = self.filter(data)
+        data = self.filter(data)
         corrs = self.findCorr(data, self.ref_signals)
         self.prediction = np.argmax(corrs)
         print("Predicted Target: {}".format(self.prediction))

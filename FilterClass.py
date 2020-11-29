@@ -63,7 +63,7 @@ class Filter:
 
     # ------------------ Butter filter -------------------------#
 
-    def butter_filter(self, data, s_r=128.0, lowcut=1, highcut=50, order=5):
+    def butter_filter(self, data, s_r=128.0, lowcut=3, highcut=50, order=5):
         data = self._format_data(data)
         # ------------------------------------------------
         # Create a butterworth bandpass filter and apply it to data.
