@@ -97,7 +97,8 @@ class cca_handler():
     def filter(self, data):
         # perform filtering based on some function in FilterClass
         data = self.filter_obj.butter_filter(data)
-        return self.filter_obj.car_filter(data)
+        # return self.filter_obj.car_filter(data)
+        return data
 
     def predict(self, data):
         # return the prediction to the program using this command handler
