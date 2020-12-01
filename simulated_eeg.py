@@ -38,7 +38,7 @@ for i in range(num_targets):
 	for channel in channels:
 		white_noise = np.random.normal(mean, stdev, samples)
 		noise = np.random.uniform(a, b, samples)
-		drift = np.random.uniform(0, 1, samples) * np.random.choice(np.arange(-1, 1, 100))
+		drift = np.random.choice(np.arange(0.5, 5, 10)) * np.linspace(0, 10, samples)
 		target_signal_channel = np.sin(2 * np.pi * target_freqs[i] * timeList) * noise + drift + white_noise
 		target_pd_list[i][channel] = target_signal_channel
 
