@@ -13,7 +13,9 @@ import os
 from scipy import signal
 plt.style.use('ggplot')
 
-save = False
+# turn save to True if you want to keep the generated data
+save = True
+
 my_colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
 channels = ['P7', 'O1', 'O2', 'P8']
 target_freqs = np.asarray([15.0, 12.0, 8.57, 5.45])
@@ -54,7 +56,7 @@ def plot_power_all(timeList, data):
 
 
 # if no directory exists, then make one
-if not os.path.exists('simulated_recordings'):
+if save and not os.path.exists('simulated_recordings'):
 			os.makedirs('simulated_recordings')
 
 
@@ -79,7 +81,7 @@ timeList = np.arange(0, num_seconds, 1/sample_rate)
 
 second_harmonic = target_freqs * 2
 
-# control
+# noise control
 en_drift = True
 en_white_noise = True
 en_multiply_noise = True
