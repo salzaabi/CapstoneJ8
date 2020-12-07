@@ -24,30 +24,35 @@ import os
 from command_handler import command_handler
 from pyboy_controller import pyboy_controller
 import time
+from simulated_signals import simulated_eeg
+from cca_handler import cca_handler
 
 
-# Initialize our variables
-    # data_columns = ["P7", "O1", "O2", "P8", "TIME"]
-    # data_columns = ["O1/theta","O1/alpha","O1/betaL","O1/betaH","O1/gamma",
-    #                 "O2/theta","O2/alpha","O2/betaL","O2/betaH","O2/gamma", "TIME"]
 
-
-# CSV CONTROL
-recording_data = pd.read_csv('old_bad_recordings/first_target_0.csv')
-record_length = len(recording_data.index)
-channels = ['P7', 'O1', 'O2', 'P8'] # only data channels
-row_index = 0
 num_seconds = 3 # changing this will affect the time taken for each command
-csv_eeg_data = None
+num_targets = 8
 start_time = time.time()
 elapsed = 0
-speedrun = True # run through file at ludricrous speed - unnecessary testing
+speedrun = False # disregard control of number of seconds per command
+save_state = True
+load_state = True
+process_delay = 1 # seconds per command - does not change data size 
+
+# simulated data control
+eeg = simulated_eeg(num_targets=num_targets, num_seconds=num_seconds) # must match with cca handler
+target = 0
+eeg_data = eeg.get_signals(target=target) # numpy array for all channels - set initial target 
+actions = []
 
 #Initialize PyBoy
 # load rom through PyBoy
+# if there is a state file, load it
 dir_path = os.path.dirname(os.path.realpath(__file__))
 rom_dir = os.path.join(dir_path, 'roms')
 pyboy = PyBoy(os.path.join(rom_dir, 'Pokemon.gb'))
+if os.path.exists(os.path.join(rom_dir, 'simulated_game.state')) and load_state:
+    l_state = open("roms/simulated_game.state", "rb")
+    pyboy.load_state(l_state)
 
 
 # set up PyBoy screen support
@@ -68,7 +73,7 @@ controller = pyboy_controller(pyboy)
 
 # init command handler
 # handler = command_handler(controller)
-handler = cca_handler(controller, num_targets=4, num_seconds=num_seconds)
+handler = cca_handler(controller, num_targets=num_targets, num_seconds=num_seconds)
 
 print("prepare steps done")
 
@@ -152,39 +157,11 @@ gameClock = core.Clock()
 # Import signal for Stimuli
 from scipy import signal as sg
 
-square1 = visual.Rect(
-    win=win, name='square1', units='pix',
-    width=(200, 200)[0], height=(200, 200)[1],
-    ori=0, pos=(0, 400),
-    lineWidth=1, lineColor=[1, 1, 1], lineColorSpace='rgb',
-    fillColor=[1, 1, 1], fillColorSpace='rgb',
-    opacity=1.0, depth=-1.0, interpolate=True)
-square2 = visual.Rect(
-    win=win, name='square2', units='pix',
-    width=(200, 200)[0], height=(200, 200)[1],
-    ori=0, pos=(-400, 0),
-    lineWidth=1, lineColor=[1, 1, 1], lineColorSpace='rgb',
-    fillColor=[1, 1, 1], fillColorSpace='rgb',
-    opacity=1.0, depth=-2.0, interpolate=True)
-square3 = visual.Rect(
-    win=win, name='square3', units='pix',
-    width=(200, 200)[0], height=(200, 200)[1],
-    ori=0, pos=(400, 0),
-    lineWidth=1, lineColor=[1, 1, 1], lineColorSpace='rgb',
-    fillColor=[1, 1, 1], fillColorSpace='rgb',
-    opacity=1.0, depth=-3.0, interpolate=True)
-square4 = visual.Rect(
-    win=win, name='square4', units='pix',
-    width=(200, 200)[0], height=(200, 200)[1],
-    ori=0, pos=(0, -400),
-    lineWidth=1, lineColor=[1, 1, 1], lineColorSpace='rgb',
-    fillColor=[1, 1, 1], fillColorSpace='rgb',
-    opacity=1.0, depth=-4.0, interpolate=True)
 image = visual.ImageStim(
     win=win,
     name='image',
     image='sin', mask=None,
-    ori=0, pos=(0, 0), size=(0.3, 0.3),
+    ori=0, pos=(0, 0), size=(0.75, 0.75),
     color=[1, 1, 1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=128, interpolate=True, depth=-6.0)
@@ -274,10 +251,6 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
 
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -303,7 +276,7 @@ continueRoutine = True
 # update component parameters for each repeat
 image.setImage('game.jpg')
 # keep track of which components have finished
-gameComponents = [square1, square2, square3, square4, image]
+gameComponents = [image]
 for thisComponent in gameComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -335,104 +308,63 @@ while continueRoutine:
     # update component parameters for each frame
     image.setImage('game.jpg')
 
-    # *square1* updates
-    if square1.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:
-        # keep track of start time/frame for later
-        square1.frameNStart = frameN  # exact frame index
-        square1.tStart = t  # local t and not account for scr refresh
-        square1.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(square1, 'tStartRefresh')  # time at next scr refresh
-        square1.setAutoDraw(True)
-    # if square1.status == STARTED:
-    #     # is it time to stop? (based on global clock, using actual start)
-    #     if tThisFlipGlobal > square1.tStartRefresh + 3 - frameTolerance:
-    #         # keep track of stop time/frame for later
-    #         square1.tStop = t  # not accounting for scr refresh
-    #         square1.frameNStop = frameN  # exact frame index
-    #         win.timeOnFlip(square1, 'tStopRefresh')  # time at next scr refresh
-    #         square1.setAutoDraw(False)
-    if square1.status == STARTED:  # only update if drawing
-        square1.setOpacity(sg.square(2 * np.pi * 15 * t), log=False)
-
-    # *square2* updates
-    if square2.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:
-        # keep track of start time/frame for later
-        square2.frameNStart = frameN  # exact frame index
-        square2.tStart = t  # local t and not account for scr refresh
-        square2.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(square2, 'tStartRefresh')  # time at next scr refresh
-        square2.setAutoDraw(True)
-    # if square2.status == STARTED:
-    #     # is it time to stop? (based on global clock, using actual start)
-    #     if tThisFlipGlobal > square2.tStartRefresh + 3 - frameTolerance:
-    #         # keep track of stop time/frame for later
-    #         square2.tStop = t  # not accounting for scr refresh
-    #         square2.frameNStop = frameN  # exact frame index
-    #         win.timeOnFlip(square2, 'tStopRefresh')  # time at next scr refresh
-    #         square2.setAutoDraw(False)
-    if square2.status == STARTED:  # only update if drawing
-        square2.setOpacity(sg.square(2 * np.pi * 12 * t), log=False)
-
-    # *square3* updates
-    if square3.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:
-        # keep track of start time/frame for later
-        square3.frameNStart = frameN  # exact frame index
-        square3.tStart = t  # local t and not account for scr refresh
-        square3.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(square3, 'tStartRefresh')  # time at next scr refresh
-        square3.setAutoDraw(True)
-    # if square3.status == STARTED:
-    #     # is it time to stop? (based on global clock, using actual start)
-    #     if tThisFlipGlobal > square3.tStartRefresh + 3 - frameTolerance:
-    #         # keep track of stop time/frame for later
-    #         square3.tStop = t  # not accounting for scr refresh
-    #         square3.frameNStop = frameN  # exact frame index
-    #         win.timeOnFlip(square3, 'tStopRefresh')  # time at next scr refresh
-    #         square3.setAutoDraw(False)
-    if square3.status == STARTED:  # only update if drawing
-        square3.setOpacity(sg.square(2 * np.pi * 8.57 * t), log=False)
-
-    # *square4* updates
-    if square4.status == NOT_STARTED and tThisFlip >= 0.0 - frameTolerance:
-        # keep track of start time/frame for later
-        square4.frameNStart = frameN  # exact frame index
-        square4.tStart = t  # local t and not account for scr refresh
-        square4.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(square4, 'tStartRefresh')  # time at next scr refresh
-        square4.setAutoDraw(True)
-    # if square4.status == STARTED:
-    #     # is it time to stop? (based on global clock, using actual start)
-    #     if tThisFlipGlobal > square4.tStartRefresh + 3 - frameTolerance:
-    #         # keep track of stop time/frame for later
-    #         square4.tStop = t  # not accounting for scr refresh
-    #         square4.frameNStop = frameN  # exact frame index
-    #         win.timeOnFlip(square4, 'tStopRefresh')  # time at next scr refresh
-    #         square4.setAutoDraw(False)
-    if square4.status == STARTED:  # only update if drawing
-        square4.setOpacity(sg.square(2 * np.pi * 5.45 * t), log=False)
+   
 
     ##################### EACH FRAME POG ###############################
 
-    # get CSV data - send command
-    if row_index >= record_length or (record_length - row_index) < 128 * num_seconds:
+    # sending space key or zero will mean non-action
+    # otherwise, send targets 1-8 using the number keys
+    key = defaultKeyboard.getKeys(keyList=["0", "1", "2", "3", "4", "5", "6", "7", "8", "up", "down", "left", "right", "space", "escape"])
+    if "escape" in key or endExpNow:
+        # save the game state if save_state flag is on
+        print('-'*10, "\tActions:\t", "-"*10)
+        print([i for i in actions])
         print('-'*20)
-        print('Done reading file. Exiting')
-        print('-'*20)
+        if save_state:
+            s_state = open("roms/simulated_game.state", "wb")
+            pyboy.save_state(s_state)
+            print('game state saved')
         core.quit()
-    elif endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        print('-'*20)
-        print('Ending experiment now. Exiting')
-        print('-'*20)
-        core.quit()
+    elif "0" in key or "num_0" in key or "space" in key:
+        # non action
+        target = 0 
+    elif "1" in key or "num_1" in key:
+        # x
+        target = 1
+    elif "2" in key or "num_2" in key:
+        # z
+        target = 2
+    elif "3"  in key or "num_3" in key or "up" in key:
+        # up
+        target = 3
+    elif "4" in key or "num_4" in key or "left" in key:
+        # left
+        target = 4
+    elif "5" in key or "num_5" in key or "right" in key:
+        # right
+        target = 5
+    elif "6" in key or "num_6" in key or "down" in key:
+        # down
+        target = 6
+    elif "7" in key or "num_7" in key:
+        # start
+        target = 7
+    elif "8" in key or "num_8" in key:
+        # select
+        target = 8
+
+
+    # print('\nKeyboard selected target {}\n'.format(target))
 
     # send command every (num_seconds)
-    if (frameN % int(num_seconds * (1.0 / frameDur)) == 0 and frameN != 0) or speedrun:
+    if (frameN % int(process_delay * (1.0 / frameDur)) == 0 and frameN != 0) or speedrun:
         # print('row_index at {} of {} rows'.format(row_index, record_length))
         elapsed = time.time() - start_time
-        print('time elapsed = {} s'.format(elapsed))
-        csv_eeg_data = np.asarray(recording_data[channels][row_index:row_index + 128 * num_seconds])
-        handler.predict(csv_eeg_data)
-        row_index += (128 * num_seconds)
+        if not speedrun:
+            print('time elapsed = {} s'.format(elapsed))
+        eeg_data = eeg.get_signals(target=target)
+        action = handler.predict(eeg_data)
+        actions.append(action)
         start_time = time.time()
 
     # *image* updates
@@ -461,14 +393,7 @@ while continueRoutine:
 for thisComponent in gameComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('square1.started', square1.tStartRefresh)
-thisExp.addData('square1.stopped', square1.tStopRefresh)
-thisExp.addData('square2.started', square2.tStartRefresh)
-thisExp.addData('square2.stopped', square2.tStopRefresh)
-thisExp.addData('square3.started', square3.tStartRefresh)
-thisExp.addData('square3.stopped', square3.tStopRefresh)
-thisExp.addData('square4.started', square4.tStartRefresh)
-thisExp.addData('square4.stopped', square4.tStopRefresh)
+
 thisExp.addData('image.started', image.tStartRefresh)
 thisExp.addData('image.stopped', image.tStopRefresh)
 # the Routine "game" was not non-slip safe, so reset the non-slip timer

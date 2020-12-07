@@ -6,11 +6,10 @@ from sklearn.cross_decomposition import CCA
 from FilterClass import Filter
 
 # TODO: optional plotting functions - separate class?
-# TODO: apply filtering
 
 class cca_handler():
 
-    def __init__(self, controller, num_targets=4, num_seconds=3):
+    def __init__(self, controller, num_targets=8, num_seconds=3):
 
         self.controller = controller
         
@@ -22,13 +21,13 @@ class cca_handler():
         # or frequencies are set from paper we are basing our experiment from 
         # check for either 4 or 8 targets
         if self.num_targets == 8:
-            self.frequencies = [32.0, 21.33, 14.22, 42.67, 16.0, 64.0, 25.6, 18.29]
+            self.frequencies = np.asarray([43.0, 37.0, 29.0, 21.0, 17.0, 11.0, 8.0, 5.0])
         elif self.num_targets == 4:
             # up, down, right, left from paper
             # NOTE: using old csv files with these new frequencies is not valid
-            self.frequencies = [5.45, 8.57, 12.0, 15.0]
+            self.frequencies = [15.0, 12.0, 8.57, 5.45]
         else:
-            print("cca did not get a good number of targets!")
+            print("cca did not get a good target number.")
 
         # prediction should be targets 1 to num_targets, not 0 to num_targets - 1
         # based on command_to_keyboard action
@@ -68,6 +67,7 @@ class cca_handler():
         for freq in self.frequencies:
             self.ref_signals.append(self.generateReferenceSignal(samples, freq))
         self.ref_signals = np.asarray(self.ref_signals)
+        print('ref_signals: {} items with shape {}'.format(len(self.ref_signals), self.ref_signals[0].shape))
 
 
     def generateReferenceSignal(self, samples, target_freq):
@@ -96,7 +96,7 @@ class cca_handler():
 
     def filter(self, data):
         # perform filtering based on some function in FilterClass
-        data = self.filter_obj.butter_filter(data)
+        data = self.filter_obj.butter_filter(data, lowcut=0.16, highcut=50.0)
         # return self.filter_obj.car_filter(data)
         return data
 
@@ -110,37 +110,40 @@ class cca_handler():
         
         data = self.filter(data)
         corrs = self.findCorr(data, self.ref_signals)
-        self.prediction = np.argmax(corrs)
+        if all([corrs[i] < 0.30 for i in range(len(corrs))]):
+            # threshold
+            self.prediction = 0
+        else:
+            self.prediction = np.argmax(corrs) + 1
         print("Predicted Target: {}".format(self.prediction))
         # if self.plotting:
         #     self.plot_signals(data)
             
         if self.controller is not None:
-            self.command_to_keyboard_action(self.prediction + 1)
+            self.command_to_keyboard_action(self.prediction)
         
         return self.prediction
 
 
     def command_to_keyboard_action(self, command):
-        # command 0 is no-action
+        # command 0 is non-action
         if command == 0:
             return
         elif command == 1:
             self.controller.send_command('x')
         elif command == 2:
-            self.controller.send_command('up')
-        elif command == 3:
             self.controller.send_command('z')
+        elif command == 3:
+            self.controller.send_command('up')
         elif command == 4:
             self.controller.send_command('left')
         elif command == 5:
             self.controller.send_command('right')
         elif command == 6:
-            self.controller.send_command('start')
-        elif command == 7:
             self.controller.send_command('down')
+        elif command == 7:
+            self.controller.send_command('start')
         elif command == 8:
             self.controller.send_command('select')
-
 
 
