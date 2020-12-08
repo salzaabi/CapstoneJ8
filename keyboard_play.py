@@ -24,7 +24,7 @@ import os
 from command_handler import command_handler
 from pyboy_controller import pyboy_controller
 import time
-from simulated_signals import simulated_eeg
+from simulated_eeg import simulated_eeg
 from cca_handler import cca_handler
 
 
@@ -33,10 +33,11 @@ num_seconds = 3 # changing this will affect the time taken for each command
 num_targets = 8
 start_time = time.time()
 elapsed = 0
-speedrun = False # disregard control of number of seconds per command
+# currently works only if speedrun is on! Bad!
+speedrun = True # disregard control of number of seconds per command
 save_state = True
 load_state = True
-process_delay = 1 # seconds per command - does not change data size 
+commands_per_sec = 30
 
 # simulated data control
 eeg = simulated_eeg(num_targets=num_targets, num_seconds=num_seconds) # must match with cca handler
@@ -356,12 +357,11 @@ while continueRoutine:
 
     # print('\nKeyboard selected target {}\n'.format(target))
 
-    # send command every (num_seconds)
-    if (frameN % int(process_delay * (1.0 / frameDur)) == 0 and frameN != 0) or speedrun:
-        # print('row_index at {} of {} rows'.format(row_index, record_length))
+    if (frameN % int(60 / commands_per_sec) == 0 and frameN != 0) or speedrun:
         elapsed = time.time() - start_time
-        if not speedrun:
-            print('time elapsed = {} s'.format(elapsed))
+        # if not speedrun:
+        #     print('time elapsed = {} s'.format(elapsed))
+        print('frame\t', frameN)
         eeg_data = eeg.get_signals(target=target)
         action = handler.predict(eeg_data)
         actions.append(action)

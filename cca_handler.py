@@ -110,8 +110,10 @@ class cca_handler():
         
         data = self.filter(data)
         corrs = self.findCorr(data, self.ref_signals)
-        if all([corrs[i] < 0.30 for i in range(len(corrs))]):
+        threshold = 0.30
+        if all([corrs[i] < threshold for i in range(len(corrs))]):
             # threshold
+            print('correlation scores not above treshold {}.'.format(threshold))
             self.prediction = 0
         else:
             self.prediction = np.argmax(corrs) + 1
