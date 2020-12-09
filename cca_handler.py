@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.cross_decomposition import CCA
-# from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 
 from FilterClass import Filter
 
@@ -9,7 +9,7 @@ from FilterClass import Filter
 
 class cca_handler():
 
-    def __init__(self, controller, num_targets=8, num_seconds=3):
+    def __init__(self, controller=None, num_targets=8, num_seconds=3):
 
         self.controller = controller
         
@@ -42,24 +42,7 @@ class cca_handler():
         self.ax = None
         self.plotter = None
 
-        # self.plotting = plotting
-        # if self.plotting:
-        #     self.start_plot()
-
         self.filter_obj = Filter()
-        
-
-    # def start_plot(self):
-    #     self.fig, self.ax = plt.subplots(figsize=(10 ,5))
-    #     self.fig.show()
-
-    # def plot_signals(self, data):
-    #     # plot columns data
-    #     self.ax.cla()
-    #     for col in data.T:
-    #         self.ax.plot(col)
-    #     # plt.pause(0.01)
-    #     self.fig.canvas.draw()
 
 
     def getAllReferenceSignals(self):
@@ -68,6 +51,22 @@ class cca_handler():
             self.ref_signals.append(self.generateReferenceSignal(samples, freq))
         self.ref_signals = np.asarray(self.ref_signals)
         print('ref_signals: {} items with shape {}'.format(len(self.ref_signals), self.ref_signals[0].shape))
+
+    def plot_reference_signals(self, start=0, end=129, show=True, save=False, name=''):
+        fig, axs = plt.subplots(self.num_targets//2, 2, figsize=(12, 8), constrained_layout=True)
+        for i in range(self.num_targets):
+            for col in self.ref_signals[i]:
+                axs.flatten()[i].plot(col)
+            axs.flatten()[i].set_title('Target {} ({} Hz) Reference Signals'.format(i, self.frequencies[i]))
+            axs.flatten()[i].set_xlabel('Samples')
+            axs.flatten()[i].set_ylabel('Amplitude (uV)')
+            axs.flatten()[i].autoscale(axis='y', tight=True)
+        if show:
+            plt.show()
+        if save:
+            fig.savefig('plot_reference_signals_{}.png'.format(name))
+            print('reference signal plots saved.')
+
 
 
     def generateReferenceSignal(self, samples, target_freq):

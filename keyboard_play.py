@@ -74,7 +74,7 @@ controller = pyboy_controller(pyboy)
 
 # init command handler
 # handler = command_handler(controller)
-handler = cca_handler(controller, num_targets=num_targets, num_seconds=num_seconds)
+handler = cca_handler(controller=controller, num_targets=num_targets, num_seconds=num_seconds)
 
 print("prepare steps done")
 
